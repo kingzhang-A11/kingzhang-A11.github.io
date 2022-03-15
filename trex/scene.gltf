@@ -261,7 +261,7 @@
     "extras": {
       "author": "Abner Wu (https://sketchfab.com/dashdu)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "http://m.imeitou.com/uploads/allimg/171123/3-1G123211107.jpg",
+      "source": "https://sketchfab.com/3d-models/tyrannosaurus-rex-8ca1f4a7ff7041b5b4aa663634934f4c",
       "title": "Tyrannosaurus Rex"
     },
     "generator": "Sketchfab-5.68.0",
@@ -308,16 +308,16 @@
   ],
   "images": [
     {
-      "uri": "textures/Material_21_baseColor.png"
+      "uri": "textures/cat1.png"
     },
     {
-      "uri": "textures/Material_21_normal.png"
+      "uri": "textures/cat2.png"
     },
     {
-      "uri": "textures/Material_22_baseColor.png"
+      "uri": "textures/cat3.png"
     },
     {
-      "uri": "textures/Material_22_normal.png"
+      "uri": "textures/cat4.png"
     }
   ],
   "materials": [
