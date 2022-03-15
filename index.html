@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script> -->
-    <!-- <script src="./aframe-ar-nft.js"></script> -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="./aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="./aframe-ar-nft.js"></script>
     <style>
         .arjs-loader {
           height: 100%;
@@ -35,15 +33,15 @@
     <!-- minimal loader shown until image descriptors are loaded -->
     <!-- <div class="arjs-loader">
       <div>Loading, please wait...</div>
-    </div>
+    </div> -->
     <a-scene
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    > -->
+    >
       <!-- we use cors proxy to avoid cross-origin problems -->
-      <!-- <a-nft
+      <a-nft
         type="nft"
         url="./trex/trex-image/trex"
         smooth="true"
@@ -59,20 +57,6 @@
         </a-entity>
       </a-nft>
       <a-entity camera></a-entity>
-    </a-scene> -->
-    <a-scene embedded arjs>
-        <a-assets>
-            <img id="my-image" src="https://alifei05.cfp.cn/creative/vcg/800/new/VCG41N931288624.jpg">
-        </a-assets>
-        <a-marker preset="hiro">
-          <a-image rotation="90 0 0" src="#my-image"></a-image>
-          <!-- <a-entity
-            position="0 0 0"
-            scale="0.05 0.05 0.05"
-            gltf-model="./trex/scene.gltf"
-          ></a-entity> -->
-        </a-marker>
-        <a-entity camera></a-entity>
-      </a-scene>
+    </a-scene>
   </body>
 </html>
