@@ -40,6 +40,9 @@
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
+    <a-assets>
+        <img id="boxTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+    </a-assets>
       <!-- we use cors proxy to avoid cross-origin problems -->
       <a-nft
         type="nft"
@@ -50,7 +53,7 @@
         smoothThreshold="5"
       >
         <a-entity
-          gltf-model="./trex/scene.gltf"
+          gltf-model="#boxTexture"
           scale="5 5 5"
           position="50 150 0"
         >
