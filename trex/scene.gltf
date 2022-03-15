@@ -308,16 +308,16 @@
   ],
   "images": [
     {
-      "uri": "textures/cat1.png"
+      "uri": "textures/Material_21_baseColor.png"
     },
     {
-      "uri": "textures/cat2.png"
+      "uri": "textures/Material_21_normal.png"
     },
     {
-      "uri": "textures/cat3.png"
+      "uri": "textures/Material_22_baseColor.png"
     },
     {
-      "uri": "textures/cat4.png"
+      "uri": "textures/Material_22_normal.png"
     }
   ],
   "materials": [
