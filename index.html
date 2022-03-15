@@ -61,7 +61,11 @@
       <a-entity camera></a-entity>
     </a-scene> -->
     <a-scene embedded arjs>
+        <a-assets>
+            <img id="my-image" src="https://alifei05.cfp.cn/creative/vcg/800/new/VCG41N931288624.jpg">
+        </a-assets>
         <a-marker preset="hiro">
+          <a-image rotation="90 0 0" src="#my-image"></a-image>
           <a-entity
             position="0 0 0"
             scale="0.05 0.05 0.05"
