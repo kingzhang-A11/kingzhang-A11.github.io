@@ -1,7 +1,7 @@
 window.onload = function() {
     AFRAME.registerComponent('videohandler', {
         init: function () {
-            var marker = this.el;
+            let marker = this.el;
 
             this.vid = document.querySelector("#vid");
 

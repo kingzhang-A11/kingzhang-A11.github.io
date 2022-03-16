@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
@@ -39,10 +39,7 @@
       embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
       <a-assets>
-          <video src="mov_bbb.mp4"
-              preload="auto" id="vid" response-type="arraybuffer" loop
-              crossorigin webkit-playsinline autoplay muted playsinline>
-          </video>
+          <video src="mov_bbb.mp4" id="vid" loop crossorigin webkit-playsinline autoplay playsinline />
       </a-assets>
 
       <a-nft
@@ -52,8 +49,7 @@
       >
           <a-video
               src="#vid"
-              position='50 150 -100'
-              rotation='90 0 180'
+              position='50 150 -20'
               width='300'
               height='175'
               >
