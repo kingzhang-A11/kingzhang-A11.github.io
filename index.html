@@ -9,7 +9,7 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
-    <script>
+    <!-- <script>
         window.onload = function() {
             AFRAME.registerComponent('videohandler', {
                 init: function () {
@@ -28,22 +28,41 @@
                 }
             });
         };
-    </script>
+    </script> -->
 </head>
+
 <body style='margin : 0px; overflow: hidden;'>
+     <a-scene
+         vr-mode-ui='enabled: false;'
+         renderer="logarithmicDepthBuffer: true;"
+         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+         <a-nft
+             type='nft' url='./trex/trex-image/trex'
+             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+             <a-entity
+                 gltf-model='./trex/cat3.gltf'
+                 scale="5 5 5"
+                 position="150 300 -100"
+                 >
+             </a-entity>
+         </a-nft>
+         <a-entity camera></a-entity>
+     </a-scene>
+ </body>
+<!-- <body style='margin : 0px; overflow: hidden;'>
     <a-scene
         vr-mode-ui="enabled: false;"
         renderer='antialias: true; alpha: true; precision: mediump;'
-        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'> -->
 
-        <a-assets>
+        <!-- <a-assets>
             <video src="./mov_bbb.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
-            </video>
-        </a-assets>
+            </video> -->
+        <!-- </a-assets> -->
 
-        <a-nft
+        <!-- <a-nft
             videohandler
             type='nft' url='./dataNFT/pinball'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
@@ -60,4 +79,4 @@
 		<a-entity camera></a-entity>
 	</a-scene>
 </body>
-</html>
+</html> -->
