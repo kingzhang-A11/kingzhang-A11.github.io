@@ -7,66 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Document</title>
-    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
-    <!-- <script src="./aframe-ar.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
-    <script>
-        window.onload = function () {
-          document
-            .querySelector(".say-hi-button")
-            .addEventListener("click", function () {
-              // here you can change also a-scene or a-entity properties, like
-              // changing your 3D model source, size, position and so on
-              // or you can just open links, trigger actions...
-              alert("Hi there!");
-            });
-        };
-      </script>
     <style>
-        .buttons {
-          position: absolute;
-          bottom: 0;
-          left: 0;
+        .arjs-loader {
+          height: 100%;
           width: 100%;
-          height: 5em;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 9999;
           display: flex;
           justify-content: center;
           align-items: center;
-          z-index: 10;
         }
-    
-        .say-hi-button {
-          padding: 0.25em;
-          border-radius: 4px;
-          border: none;
-          background: white;
-          color: black;
-          width: 4em;
-          height: 2em;
+      
+        .arjs-loader div {
+          text-align: center;
+          font-size: 1.25em;
+          color: white;
         }
-      </style>
+    </style>
+    <script>
+        AFRAME.registerComponent('markerhandler', {
+            init: function () {
+            this.el.sceneEl.addEventListener('markerFound', () => {
+                // redirect to custom URL
+                window.location = 'https://github.com/AR-js-org/AR.js';
+            });
+        }
+    })
+    </script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
-    <div class="buttons">
-        <button class="say-hi-button">SAY HI!</button>
+<body style="margin : 0px; overflow: hidden;">
+    <!-- minimal loader shown until image descriptors are loaded -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
     </div>
-     <a-scene
-         vr-mode-ui='enabled: false;'
-         renderer="logarithmicDepthBuffer: true;"
-         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
-         <a-nft
-             type='nft' url='./trex/trex-image/trex'
-             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-             <a-entity
-                 gltf-model='./trex/cat3.gltf'
-                 scale="5 5 5"
-                 position="150 300 -100"
-                 >
-             </a-entity>
-         </a-nft>
-         <a-entity camera></a-entity>
-     </a-scene>
- </body>
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
+      <a-nft
+        markerhandler
+        type="nft"
+        url="./trex/trex-image/trex"
+      >
+      </a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
