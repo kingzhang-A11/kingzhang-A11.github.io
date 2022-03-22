@@ -27,6 +27,9 @@
     <script>
         AFRAME.registerComponent('search-success', {
             init: function() {
+                document.getElementById('search-pic').style.visibility = 'hidden';
+            },
+            update: function() {
                 document.getElementById('search-pic').style.visibility = 'visible';
             }
         });
@@ -44,7 +47,9 @@
          <a-nft
              type='nft' url='./trex/trex-image/trex'
              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-             <a-entity search-success />
+             <a-entity  gltf-model='./trex/scene.gltf'
+             scale="5 5 5"
+             position="150 300 -100" search-success />
          </a-nft>
          <a-entity camera></a-entity>
      </a-scene>
