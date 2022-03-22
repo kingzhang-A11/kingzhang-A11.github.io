@@ -6,27 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-     <a-scene
-         vr-mode-ui='enabled: false;'
-         renderer="logarithmicDepthBuffer: true;"
-         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
-         <a-nft
-             type='nft' url='./trex/trex-image/trex'
-             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-             <a-entity
-                 gltf-model='./trex/cat3.gltf'
-                 scale="5 5 5"
-                 position="150 300 -100"
-                 >
-             </a-entity>
-         </a-nft>
-         <a-entity camera></a-entity>
-     </a-scene>
+    <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+
+    <a-text value="This will always face the user." look-at="[gps-camera]" scale="75 75 75"
+        gps-entity-place="latitude: your-latitude>; longitude: your-longitude;"></a-text>
+    <a-camera gps-camera rotation-reader>
+    </a-camera>
+</a-scene>
  </body>
 </html>
