@@ -41,8 +41,9 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
-            <video type="video/webm" id="vid" src="./demo.webm" preload="auto" response-type="arraybuffer" loop
+            <video id="vid" src="./demo.webm" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
+                <source  type="video/webm" src="./demo.webm">
             </video>
         </a-assets>
 
