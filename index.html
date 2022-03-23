@@ -33,10 +33,10 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene
-        vr-mode-ui="enabled: false;"
-        renderer='logarithmicDepthBuffer: true;'
-        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
             <video src="./mov_bbb.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
@@ -46,7 +46,7 @@
 
         <a-nft
             videohandler
-            type='nft' url='./dataNFT/tree'
+            type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
             <a-video
@@ -58,7 +58,6 @@
                 >
             </a-video>
         </a-nft>
-        <!-- <a-entity text="value: Hello World;" /> -->
 		<a-entity camera position="0 0 5" />
 	</a-scene>
 </body>
