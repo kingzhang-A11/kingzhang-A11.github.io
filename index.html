@@ -42,9 +42,9 @@
             color: aqua;
             z-index: 10;
         }
-        video {
+        /* video {
             mix-blend-mode: screen;
-        }
+        } */
     </style>
     <script>
         window.onload = function() {
@@ -56,8 +56,8 @@
     
                     marker.addEventListener('markerFound', function () {
                         this.vid.play();
-                        document.querySelector("#search-text").style.display = 'block';
-                        document.querySelector("#buttons").style.display = 'block';
+                        // document.querySelector("#search-text").style.display = 'block';
+                        // document.querySelector("#buttons").style.display = 'block';
 
                         // window.onload = function () {
                         //     document
@@ -86,10 +86,10 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-    <div id="buttons">
+    <!-- <div id="buttons">
         <button id="say-hi-button">点击上传</button>
     </div>
-    <p id="search-text">寻景成功！（+1 探索点)</p>
+    <p id="search-text">寻景成功！（+1 探索点)</p> -->
     <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
@@ -107,15 +107,14 @@
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
-            <!-- <a-video
+            <a-video
                 src="#vid"
                 rotation='90 0 180'
                 width="140"
                 height="220"
                 position="140 -50 -200"
-                transparent="true"
                 >
-            </a-video> -->
+            </a-video>
         </a-nft>
 		<a-entity camera position="0 0 5" />
 	</a-scene>
