@@ -56,8 +56,8 @@
     
                     marker.addEventListener('markerFound', function () {
                         this.vid.play();
-                        // document.querySelector("#search-text").style.display = 'block';
-                        // document.querySelector("#buttons").style.display = 'block';
+                        document.querySelector("#search-text").style.display = 'block';
+                        document.querySelector("#buttons").style.display = 'block';
 
                         // window.onload = function () {
                         //     document
@@ -86,10 +86,10 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-    <!-- <div id="buttons">
+    <div id="buttons">
         <button id="say-hi-button">点击上传</button>
     </div>
-    <p id="search-text">寻景成功！（+1 探索点)</p> -->
+    <p id="search-text">寻景成功！（+1 探索点)</p>
     <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
