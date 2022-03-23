@@ -52,65 +52,49 @@
                 init: function () {
                     let marker = this.el;
     
-                    // this.vid = document.querySelector("#vid");
+                    this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
-                        // this.vid.play();
-                        alert('success');
+                        this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
 
-                        window.onload = function () {
-                            document
-                            .querySelector(".say-hi-button")
-                            .addEventListener("click", function () {
-                                // here you can change also a-scene or a-entity properties, like
-                                // changing your 3D model source, size, position and so on
-                                // or you can just open links, trigger actions...
-                                alert("收集成功");
-                            });
-                        };
+                        // window.onload = function () {
+                        //     document
+                        //     .querySelector(".say-hi-button")
+                        //     .addEventListener("click", function () {
+                        //         // here you can change also a-scene or a-entity properties, like
+                        //         // changing your 3D model source, size, position and so on
+                        //         // or you can just open links, trigger actions...
+                        //         alert("收集成功");
+                        //     });
+                        // };
                     }.bind(this));
     
             marker.addEventListener('markerLost', function() {
                 console.log(2);
-                // this.vid.pause();
-                // this.vid.currentTime = 0;
+                this.vid.pause();
+                this.vid.currentTime = 0;
             }.bind(this));
                 }
             });
         };
         window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(0);
+         console.log(3);
         });
     </script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
     <div id="buttons">
-        <button id="say-hi-button">点击兑换</button>
+        <button id="say-hi-button">点击上传</button>
     </div>
     <p id="search-text">寻景成功！（+1 探索点)</p>
     <a-scene
-        vr-mode-ui='enabled: false;'
-        renderer="logarithmicDepthBuffer: true;"
-        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
-
-        <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
-        <a-nft
-            videohandler
-            type='nft' url='./dataNFT/trees'
-            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-            <!-- <a-entity
-                gltf-model='./trex/scene.gltf'
-                scale="5 5 5"
-                position="150 300 -100"
-                >
-            </a-entity> -->
-        </a-nft>
-		<a-entity camera></a-entity>
-    </a-scene>
-    <!-- <a-scene embedded arjs>
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
             <video id="vid" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/output(compress-video-online.com)%20(1).mp4" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
@@ -122,7 +106,7 @@
             videohandler
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
-        > -->
+        >
             <!-- <a-video
                 src="#vid"
                 rotation='90 0 180'
@@ -132,15 +116,8 @@
                 transparent="true"
                 >
             </a-video> -->
-        <!-- </a-nft> -->
-        <!-- <a-marker preset="hiro">
-            <a-entity
-                position="0 0 0"
-                scale="0.05 0.05 0.05"
-                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-        ></a-entity> -->
-        <!-- </a-marker> -->
-		<!-- <a-entity camera position="0 0 5" />
+        </a-nft>
+		<a-entity camera position="0 0 5" />
 	</a-scene>
-</body> -->
+</body>
 </html>
