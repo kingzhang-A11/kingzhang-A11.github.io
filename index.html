@@ -29,7 +29,7 @@
             });
         };
         window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(1111);
+         console.log(222);
         });
     </script>
 </head>
@@ -41,10 +41,8 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
-            <video preload="auto" id="vid" response-type="arraybuffer" loop
+            <video type="video/webm" id="vid" src="./demo.webm" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
-                <source src="./demo.webm" type="video/webm">
-                Sorry, your browser doesn't support embedded videos.
             </video>
         </a-assets>
 
