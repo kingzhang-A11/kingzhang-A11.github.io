@@ -41,9 +41,11 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
-            <video src="./demo.webm"
-                preload="auto" id="vid" response-type="arraybuffer" loop
+            <canvas id="my-canvas" crossorigin="anonymous"></canvas>
+            <video preload="auto" id="vid" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
+                <source src="./demo.webm" type="video/webm">
+                Sorry, your browser doesn't support embedded videos.
             </video>
         </a-assets>
 
