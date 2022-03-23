@@ -82,7 +82,7 @@
             });
         };
         window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(3);
+         console.log(0);
         });
     </script>
 </head>
@@ -92,7 +92,26 @@
         <button id="say-hi-button">点击兑换</button>
     </div>
     <p id="search-text">寻景成功！（+1 探索点)</p>
-    <a-scene embedded arjs>
+    <a-scene
+        vr-mode-ui='enabled: false;'
+        renderer="logarithmicDepthBuffer: true;"
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+
+        <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
+        <a-nft
+            videohandler
+            type='nft' url='./dataNFT/trees'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            <!-- <a-entity
+                gltf-model='./trex/scene.gltf'
+                scale="5 5 5"
+                position="150 300 -100"
+                >
+            </a-entity> -->
+        </a-nft>
+		<a-entity camera></a-entity>
+    </a-scene>
+    <!-- <a-scene embedded arjs>
         <a-assets>
             <video id="vid" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/output(compress-video-online.com)%20(1).mp4" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
@@ -104,7 +123,7 @@
             videohandler
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
-        >
+        > -->
             <!-- <a-video
                 src="#vid"
                 rotation='90 0 180'
@@ -114,7 +133,7 @@
                 transparent="true"
                 >
             </a-video> -->
-        </a-nft>
+        <!-- </a-nft> -->
         <!-- <a-marker preset="hiro">
             <a-entity
                 position="0 0 0"
@@ -122,7 +141,7 @@
                 gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
         ></a-entity> -->
         <!-- </a-marker> -->
-		<a-entity camera position="0 0 5" />
+		<!-- <a-entity camera position="0 0 5" />
 	</a-scene>
-</body>
+</body> -->
 </html>
