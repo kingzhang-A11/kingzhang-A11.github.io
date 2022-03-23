@@ -12,16 +12,27 @@
     <style>
         #search{
             width: 100%;
-            position: fixed;
-            left: 50%;
-            bottom: 30px;
+            height: 100%;
+            position: relative;
+            text-align: center;
+            font-size: 18px;
         }
         #search-button{
+            position: absolute;
+            bottom: 30px;
             width: 50px;
             height: 30px;
             background-color: blue;
             color: #fff;
             display: none;
+        }
+        #search-text{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+            color: aqua;
         }
         video {
             mix-blend-mode: screen;
@@ -36,9 +47,9 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
-                        alert("寻景成功！（+1 探索点）")
-                        document.querySelector("#search-button").style.display = 'block';
                         this.vid.play();
+                        document.querySelector("#search-text").style.display = 'block';
+                        document.querySelector("#search-button").style.display = 'block';
                     }.bind(this));
     
             marker.addEventListener('markerLost', function() {
@@ -56,6 +67,7 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <div id="search">
+        <p id="search-text">寻景成功！（+1 探索点)</p>
         <button id="search-button"></button>
     </div>
     <a-scene
