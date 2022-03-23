@@ -29,7 +29,7 @@
             });
         };
         window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(444);
+         console.log(1);
         });
     </script>
 </head>
@@ -41,9 +41,8 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
-            <video id="vid" src="./demo.webm" preload="auto" response-type="arraybuffer" loop
+            <video type="video/webm" id="vid" src="./demo.webm" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline t7-video-player-type="media" x5-video-player-type="h5-page">
-                <source  type="video/webm" src="./demo.webm">
             </video>
         </a-assets>
 
