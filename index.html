@@ -54,7 +54,7 @@
 
     
                     marker.addEventListener('markerFound', function () {
-                        this.vid.style.display = 'block';
+                        this.vid.style.setProperty('display','block','important')
                         this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
