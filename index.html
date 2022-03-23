@@ -28,6 +28,9 @@
                 }
             });
         };
+        window.addEventListener("arjs-nft-loaded", (event) => {
+         console.log(event);
+        });
     </script>
 </head>
 
@@ -45,6 +48,8 @@
         </a-assets>
 
         <a-nft
+            emitevents="true"
+            size="1.6"
             videohandler
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
