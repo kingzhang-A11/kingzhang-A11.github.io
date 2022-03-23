@@ -33,10 +33,9 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene
-        isMobile
         vr-mode-ui="enabled: false;"
-        renderer='antialias: true; alpha: true; precision: mediump;'
-        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+        renderer='logarithmicDepthBuffer: true;'
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
             <video src="./mov_bbb.mp4"
@@ -59,10 +58,8 @@
                 >
             </a-video>
         </a-nft>
-        <a-entity text="value: Hello World;"></a-entity>
-		<a-entity position="0 0 5">
-            <a-camera />
-        </a-entity>
+        <a-entity text="value: Hello World;" />
+		<a-entity camera position="0 0 5" />
 	</a-scene>
 </body>
 </html>
