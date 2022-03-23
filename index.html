@@ -52,9 +52,9 @@
     
                     this.vid = document.querySelector("#vid");
 
-                    this.vid.style.display = 'block';
     
                     marker.addEventListener('markerFound', function () {
+                        this.vid.style.display = 'block';
                         this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
