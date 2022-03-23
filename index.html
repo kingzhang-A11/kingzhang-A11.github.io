@@ -43,9 +43,6 @@
             color: aqua;
             z-index: 10;
         }
-        video {
-            mix-blend-mode: screen;
-        }
     </style>
     <script>
         window.onload = function() {
@@ -54,6 +51,8 @@
                     let marker = this.el;
     
                     this.vid = document.querySelector("#vid");
+
+                    this.vid.style.display = 'block';
     
                     marker.addEventListener('markerFound', function () {
                         this.vid.play();
