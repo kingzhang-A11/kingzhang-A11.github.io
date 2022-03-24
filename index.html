@@ -135,29 +135,6 @@
     <title>Document</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <!-- <script>
-    
-        function play(id){
-          let aVideoAsset = document.querySelector('#' + id);
-          aVideoAsset.play().catch(function (error) {
-            aVideoAsset.pause();
-            drawText("Presione el boton de play");
-            hideOrShow("playButton");
-    
-          });
-          aVideoAsset.setAttribute('loop', 'false');
-          hideOrShow('playButton');
-        }
-        function hideOrShow(id) {
-      var x = document.getElementById(id);
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-     
-      </script> -->
       <script>
         window.onload = function() {
             AFRAME.registerComponent('videohandler', {
@@ -167,7 +144,6 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
-                        document.querySelector("#camera-show").style.display = "block";
                         this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
@@ -182,8 +158,6 @@
                     }.bind(this));
     
             marker.addEventListener('markerLost', function() {
-                console.log(2);
-                document.querySelector("#camera-show").style.display = "none";
                 this.vid.pause();
                 this.vid.currentTime = 0;
             }.bind(this));
@@ -225,9 +199,6 @@
                 color: aqua;
                 z-index: 10;
             }
-            #camera-show{
-                display: none;
-            }
         </style>
 </head>
 <body>
@@ -235,7 +206,6 @@
         <button id="say-hi-button">点击上传</button>
     </div>
     <p id="search-text">寻景成功！（+1 探索点)</p>
-    <!-- <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a> -->
     <a-scene vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true;"
     embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
@@ -245,19 +215,13 @@
         </video>
     </a-assets>
 
-    <a-marker-camera preset='hiro' id="camera-show" >
-        <a-video id="vid"  width="140" height="220" position="10 -50 -200" rotation="90 0 180" src="#alpha">
-            <video width="140" height="220" src="#source"></video>
-        </a-video>
-    </a-marker-camera>
 
     <a-marker preset="hiro"  videohandler>
-        <!-- <a-entity
-        position="0 0 0"
-        rotation="0 0 0"
-        scale="0.05 0.05 0.05"
-        gltf-model="../image-tracking/nft/trex/scene.gltf"
-        ></a-entity> -->
+        <a-marker-camera preset='hiro' >
+            <a-video id="vid"  width="140" height="220" position="10 -50 -200" rotation="90 0 180" src="#alpha">
+                <video width="140" height="220" src="#source"></video>
+            </a-video>
+        </a-marker-camera>
     </a-marker>
 
     <a-entity camera position="0 0 5" />
