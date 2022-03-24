@@ -143,7 +143,6 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
-                        console.log('successfully');
                         document.querySelector("#playButton").style.display = 'block';
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
@@ -158,7 +157,6 @@
                     }.bind(this));
     
             marker.addEventListener('markerLost', function() {
-                console.log('faild');
                 document.querySelector("#playButton").style.display = 'none';
             }.bind(this));
                 }
@@ -229,11 +227,11 @@
                 border-radius: 50%;
                 padding: 12px 24px;
                 padding-bottom: 0px;
-                background: rgba(0, 123, 255) url(./image/place.png) center no-repeat;
+                background: rgba(0, 123, 255) url(place.png) center no-repeat;
                 background-size: 40px 40px;
             }
             .play-overlay:hover {
-                background: rgba(0, 0, 0, 0.2) url(./image/place.png) center no-repeat;
+                background: rgba(0, 0, 0, 0.2) url(place.png) center no-repeat;
                 background-size: 40px 40px;
             }
             #playButton{display: none;}
@@ -260,7 +258,8 @@
         </a-video>
     </a-marker-camera>
 
-    <a-marker videohandler emitevents="true"/>
+    <a-marker preset='custom' type='pattern' url='./pinball.patt' videohandler smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" emitevents="true">
+    </a-marker>
 
     <a-entity camera position="0 0 5" />
     </a-scene>
