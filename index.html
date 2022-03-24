@@ -56,6 +56,7 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
+                        console.log('successfully');
                         this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
