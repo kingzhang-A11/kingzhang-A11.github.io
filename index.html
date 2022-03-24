@@ -132,6 +132,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="./aframe-ar-nft.js"></script>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
       <script>
@@ -255,14 +257,21 @@
         </video>
     </a-assets>
 
-    <a-marker-camera url="./cat2.patt" type="pattern" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" emitevents="true">
+    <a-marker-camera preset='hiro' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" emitevents="true">
         <a-video id="vid"  width="100" height="250" position="100 -10 -350" rotation="0 0 0" src="#alpha">
             <video  width="100" height="250" src="#source"></video>
         </a-video>
     </a-marker-camera>
 
-    <a-marker url="./cat2.patt" type="pattern" videohandler smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" emitevents="true">
-    </a-marker>
+    <a-nft
+        emitevents="true"
+        videohandler
+        type='nft' url='./dataNFT/trees'
+        smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
+    >
+    </a-nft>
+    <!-- <a-marker preset="hiro"  videohandler smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" emitevents="true"> -->
+    <!-- </a-marker> -->
 
     <a-entity camera position="0 0 5" />
     </a-scene>
