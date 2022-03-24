@@ -167,6 +167,7 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
+                        document.querySelector("#camera-show").style.display = "block";
                         this.vid.play();
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
@@ -182,38 +183,58 @@
     
             marker.addEventListener('markerLost', function() {
                 console.log(2);
+                document.querySelector("#camera-show").style.display = "none";
                 this.vid.pause();
                 this.vid.currentTime = 0;
             }.bind(this));
                 }
             });
         };
-        window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(3);
-        });
     </script>
-      <!-- <style>
-        .play-overlay {
-            z-index: 99999;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            box-sizing: border-box;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            padding: 12px 24px;
-            padding-bottom: 0px;
-            background: rgba(0, 123, 255) url('./place.png') center no-repeat;
-            background-size: 40px 40px;
-        }
-        .play-overlay:hover {
-            background: rgba(0, 0, 0, 0.2) url('./place.png') center no-repeat;
-            background-size: 40px 40px;
-        }
-      </style> -->
+        <style>
+            #buttons {
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                width: 100%;
+                height: 5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                display: none;
+            }
+    
+            #say-hi-button {
+                padding: 0.25em;
+                border-radius: 4px;
+                border: none;
+                background: white;
+                color: black;
+                width: 5em;
+                height: 2em;
+                cursor: pointer;
+            }
+    
+            #search-text{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                display: none;
+                color: aqua;
+                z-index: 10;
+            }
+            #camera-show{
+                display: none;
+            }
+        </style>
 </head>
 <body>
+    <div id="buttons">
+        <button id="say-hi-button">点击上传</button>
+    </div>
+    <p id="search-text">寻景成功！（+1 探索点)</p>
     <!-- <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a> -->
     <a-scene vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true;"
@@ -224,11 +245,21 @@
         </video>
     </a-assets>
 
-    <a-marker-camera videohandler type="pattern" preset='hiro' url='./dataNFT/trees' smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
+    <a-marker-camera preset='hiro' id="camera-show" >
         <a-video id="vid"  width="140" height="220" position="10 -50 -200" rotation="90 0 180" src="#alpha">
             <video width="140" height="220" src="#source"></video>
         </a-video>
     </a-marker-camera>
+
+    <a-marker preset="hiro"  videohandler>
+        <!-- <a-entity
+        position="0 0 0"
+        rotation="0 0 0"
+        scale="0.05 0.05 0.05"
+        gltf-model="../image-tracking/nft/trex/scene.gltf"
+        ></a-entity> -->
+    </a-marker>
+
     <a-entity camera position="0 0 5" />
     </a-scene>
 </body>
