@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
     <title>GeoAR.js demo</title>
-    <!-- <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-transparent-video-shader@1.0.3/dist/aframe-transparent-video-shader.umd.js"></script>
     <style>
         #buttons {
             position: absolute;
@@ -106,13 +103,16 @@
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
-            <a-entity
-                material="shader: transparent-video; src=#vid"
-                geometry="primitive: plane;width:140,height:220"
+            <a-video
+                shader="phong"
+                transparent="true"
+                src="#vid"
                 rotation='90 0 180'
+                width="140"
+                height="220"
                 position="140 -50 -200"
                 >
-            </a-entity>
+            </a-video>
         </a-nft>
 		<a-entity camera position="0 0 5" />
 	</a-scene>
