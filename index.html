@@ -182,7 +182,9 @@
     <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
     <a-scene arjs='sourceType:image;sourceUrl: assets/kanji-marker.png'>
     <a-assets>
-        <video id="alpha" autoplay loop="true" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm"></video>
+        <video id="alpha" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" preload="auto" loop
+                crossorigin webkit-playsinline autoplay muted playsinline>
+        </video>
     </a-assets>
 
     <!-- Using the asset management system. -->
