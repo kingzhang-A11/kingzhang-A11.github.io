@@ -94,7 +94,7 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
-            <video id="vid" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/output(compress-video-online.com)%20(1).mp4" preload="auto" response-type="arraybuffer" loop
+            <video id="vid" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" preload="auto" response-type="arraybuffer" loop
                 crossorigin webkit-playsinline autoplay muted playsinline>
             </video>
         </a-assets>
@@ -106,6 +106,8 @@
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
             <a-video
+                transparent="true"
+                shader="standard"
                 src="#vid"
                 rotation='90 0 180'
                 width="140"
