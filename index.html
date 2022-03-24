@@ -43,6 +43,9 @@
             color: aqua;
             z-index: 10;
         }
+        /* video {
+            mix-blend-mode: screen;
+        } */
     </style>
     <script>
         window.onload = function() {
@@ -51,7 +54,6 @@
                     let marker = this.el;
     
                     this.vid = document.querySelector("#vid");
-
     
                     marker.addEventListener('markerFound', function () {
                         this.vid.play();
@@ -93,7 +95,7 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-assets>
             <video id="vid" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" preload="auto" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline style="mix-blend-mode: screen;">
+                crossorigin webkit-playsinline autoplay muted playsinline>
             </video>
         </a-assets>
 
