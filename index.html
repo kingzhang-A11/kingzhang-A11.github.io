@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
     <title>GeoAR.js demo</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
     <style>
@@ -72,15 +69,15 @@
             });
         };
         window.addEventListener("arjs-nft-loaded", (event) => {
-         console.log(11);
+         console.log(3);
         });
-        // window.onload = function () {
-        //                     document
-        //                     .querySelector("#say-hi-button")
-        //                     .addEventListener("click", function () {
-        //                         alert("收集成功");
-        //                     });
-        //                 };
+        window.onload = function () {
+                            document
+                            .querySelector("#say-hi-button")
+                            .addEventListener("click", function () {
+                                alert("收集成功");
+                            });
+                        };
     </script>
 </head>
 
@@ -106,22 +103,14 @@
             type='nft' url='./dataNFT/trees'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
-            <a-entity
-                geometry="primitive: box;width:140;height:220"
-                position="140 -50 -200"
-                rotation='90 0 180'
-                material="src: #vid; shader: phong; transparent: true"></a-entity>
-
-            <!-- <a-video
-                shader="phong"
-                transparent="true"
+            <a-video
                 src="#vid"
                 rotation='90 0 180'
                 width="140"
                 height="220"
                 position="140 -50 -200"
                 >
-            </a-video> -->
+            </a-video>
         </a-nft>
 		<a-entity camera position="0 0 5" />
 	</a-scene>
