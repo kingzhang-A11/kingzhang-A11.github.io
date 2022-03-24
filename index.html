@@ -164,6 +164,7 @@
         };
         function play(id){
             let aVideoAsset = document.querySelector('#' + id);
+            aVideoAsset.style.display = 'block';
             aVideoAsset.play().catch(function (error) {
                 aVideoAsset.pause();
                 hideOrShow("playButton");
@@ -234,6 +235,9 @@
                 background-size: 40px 40px;
             }
             #playButton{display: none;}
+            #alpha{
+                display: none;
+            }
         </style>
 </head>
 <body>
