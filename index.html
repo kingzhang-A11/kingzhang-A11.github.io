@@ -144,7 +144,8 @@
                     this.vid = document.querySelector("#vid");
     
                     marker.addEventListener('markerFound', function () {
-                        this.vid.play();
+                        // this.vid.play();
+                        document.querySelector("#playButton").style.display = 'block';
                         document.querySelector("#search-text").style.display = 'block';
                         document.querySelector("#buttons").style.display = 'block';
 
@@ -158,12 +159,31 @@
                     }.bind(this));
     
             marker.addEventListener('markerLost', function() {
-                this.vid.pause();
-                this.vid.currentTime = 0;
+                // this.vid.pause();
+                // this.vid.currentTime = 0;
+                document.querySelector("#playButton").style.display = 'none';
             }.bind(this));
                 }
             });
         };
+        function play(id){
+            let aVideoAsset = document.querySelector('#' + id);
+            aVideoAsset.play().catch(function (error) {
+                aVideoAsset.pause();
+                hideOrShow("playButton");
+
+            });
+            aVideoAsset.setAttribute('loop', 'false');
+            hideOrShow('playButton');
+            }
+            function hideOrShow(id) {
+            let x = document.getElementById(id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
         <style>
             #buttons {
@@ -199,9 +219,29 @@
                 color: aqua;
                 z-index: 10;
             }
+            .play-overlay {
+                z-index: 99999;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                box-sizing: border-box;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                padding: 12px 24px;
+                padding-bottom: 0px;
+                background: rgba(0, 123, 255) url(place.png) center no-repeat;
+                background-size: 40px 40px;
+            }
+            .play-overlay:hover {
+            background: rgba(0, 0, 0, 0.2) url(place.png) center no-repeat;
+            background-size: 40px 40px;
+            }
+            #playButton{display: none;}
         </style>
 </head>
 <body>
+    <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
     <div id="buttons">
         <button id="say-hi-button">点击上传</button>
     </div>
@@ -215,13 +255,13 @@
         </video>
     </a-assets>
 
+    <a-marker-camera preset='hiro' >
+        <a-video id="vid"  width="140" height="220" position="10 -50 -200" rotation="90 0 180" src="#alpha">
+            <video width="140" height="220" src="#source"></video>
+        </a-video>
+    </a-marker-camera>
 
     <a-marker preset="hiro"  videohandler>
-        <a-marker-camera preset='hiro' >
-            <a-video id="vid"  width="140" height="220" position="10 -50 -200" rotation="90 0 180" src="#alpha">
-                <video width="140" height="220" src="#source"></video>
-            </a-video>
-        </a-marker-camera>
     </a-marker>
 
     <a-entity camera position="0 0 5" />
