@@ -162,7 +162,7 @@
         };
         function play(id){
             let aVideoAsset = document.querySelector('#' + id);
-            document.querySelector("#vid").visible = 'true';
+            document.querySelector("#vid").setAttribute('visible', true);
             aVideoAsset.play().catch(function (error) {
                 aVideoAsset.pause();
                 hideOrShow("playButton");
