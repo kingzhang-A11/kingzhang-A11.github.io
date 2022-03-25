@@ -140,8 +140,6 @@
                 init: function () {
                     let marker = this.el;
     
-                    this.vid = document.querySelector("#vid");
-    
                     marker.addEventListener('markerFound', function () {
                         document.querySelector("#playButton").style.display = 'block';
                         document.querySelector("#search-text").style.display = 'block';
@@ -164,7 +162,7 @@
         };
         function play(id){
             let aVideoAsset = document.querySelector('#' + id);
-            aVideoAsset.style.display = 'block';
+            document.querySelector("#vid").visible = 'true';
             aVideoAsset.play().catch(function (error) {
                 aVideoAsset.pause();
                 hideOrShow("playButton");
@@ -227,11 +225,11 @@
                 border-radius: 50%;
                 padding: 12px 24px;
                 padding-bottom: 0px;
-                background: rgba(0, 123, 255) url(place.png) center no-repeat;
+                background: rgba(0, 123, 255) url(./image/place.png) center no-repeat;
                 background-size: 40px 40px;
             }
             .play-overlay:hover {
-                background: rgba(0, 0, 0, 0.2) url(place.png) center no-repeat;
+                background: rgba(0, 0, 0, 0.2) url(./image/place.png) center no-repeat;
                 background-size: 40px 40px;
             }
             #playButton{display: none;}
@@ -253,7 +251,7 @@
     </a-assets>
 
     <a-marker-camera preset='custom' type='pattern' url='./pinball.patt'>
-        <a-video id="vid"  width="100" height="250" position="100 -10 -350" rotation="0 0 0" src="#alpha">
+        <a-video id="vid" visible="false" width="100" height="250" position="100 -10 -350" rotation="0 0 0" src="#alpha">
             <video  width="100" height="250" src="#source"></video>
         </a-video>
     </a-marker-camera>
