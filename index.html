@@ -161,8 +161,10 @@
             });
         };
         function play(id){
+            let sceneEl = document.querySelector('a-scene');
+            let videos = sceneEl.querySelector('a-video');
             let aVideoAsset = document.querySelector('#' + id);
-            document.querySelector("#vid").setAttribute('visible', true);
+            videos.setAttribute('visible', true);
             aVideoAsset.play().catch(function (error) {
                 aVideoAsset.pause();
                 hideOrShow("playButton");
