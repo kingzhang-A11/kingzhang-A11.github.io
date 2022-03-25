@@ -263,11 +263,10 @@
 
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/agusalex/arjs-alphachannel-video/master/styles.css" />
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
     <script type="text/javascript">
-     window.onload = function() {
+        window.onload = function() {
             const sceneEl = document.querySelector("a-scene");
             sceneEl.addEventListener("loaded", () => {
             sceneEl.camera = new THREE.PerspectiveCamera();
@@ -289,18 +288,14 @@
             }.bind(this));
                 }
             });
-            // document.querySelector('a-scene').addEventListener('loaded', function () {
-            //     document.getElementById('vid2').play();
-            //     document.getElementById('alpha2').play();
-            //     console.log("loaded");
-            // })
         };
-      </script>
+    </script>
   </head>
   <body>
     <a-scene>
     <a-assets>
-      <video id="alpha2" loop="true" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" autoplay muted></video>
+      <video id="alpha2" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" preload="auto" response-type="arraybuffer" loop
+      crossorigin webkit-playsinline autoplay muted playsinline></video>
     </a-assets>
     <a-nft
         emitevents="true"
@@ -312,8 +307,8 @@
         smoothTolerance="0.01"
         smoothThreshold="5"
     >
-      <a-video id = "vid2"  width="200" height="350" position="20 -120 -550" rotation="90 0 180" src="#alpha2" autoplay muted>
-        <video width="200" height="350" src="#source" />
+      <a-video id = "vid2"  width="250" height="450" position="250 0 -180" rotation="90 0 180" src="#alpha2" autoplay muted>
+        <video width="250" height="450" src="#source" />
       </a-video>
     </a-nft>
     <a-entity camera position="0 0 5" />
