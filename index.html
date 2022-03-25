@@ -267,28 +267,34 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="./aframe-ar-nft.js"></script>
     <script type="text/javascript">
-        const sceneEl = document.querySelector("a-scene");
-        sceneEl.addEventListener("loaded", () => {
-          sceneEl.camera = new THREE.PerspectiveCamera();
-        });
-        let nftElem = document.querySelector("a-nft");
-        nftElem.addEventListener("markerFound", (e) => {
-          document.getElementById('vid2').play();
-          document.getElementById('alpha2').play();
-          document.getElementById("scannerContainer").style.display = "none";
-          document.getElementById("imgContainer").style.display = "none";
-          console.log("found");
-        });
-        nftElem.addEventListener("markerLost", (e) => {
-          document.getElementById("scannerContainer").style.display = "";
-          document.getElementById("imgContainer").style.display = "";
-          console.log("lost");
-        });
-    document.querySelector('a-scene').addEventListener('loaded', function () {
-        document.getElementById('vid2').play();
-        document.getElementById('alpha2').play();
-        console.log("loaded");
-      })
+     window.onload = function() {
+            const sceneEl = document.querySelector("a-scene");
+            sceneEl.addEventListener("loaded", () => {
+            sceneEl.camera = new THREE.PerspectiveCamera();
+            });
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    let marker = this.el;
+                    this.vid = document.querySelector("#vid");
+                    marker.addEventListener('markerFound', function () {
+                        document.getElementById('vid2').play();
+                        document.getElementById('alpha2').play();
+                        document.getElementById("scannerContainer").style.display = "none";
+                        document.getElementById("imgContainer").style.display = "none";
+                    }.bind(this));
+            marker.addEventListener('markerLost', function() {
+                document.getElementById("scannerContainer").style.display = "";
+                document.getElementById("imgContainer").style.display = "";
+                console.log("lost");
+            }.bind(this));
+                }
+            });
+            // document.querySelector('a-scene').addEventListener('loaded', function () {
+            //     document.getElementById('vid2').play();
+            //     document.getElementById('alpha2').play();
+            //     console.log("loaded");
+            // })
+        };
       </script>
   </head>
   <body>
@@ -297,12 +303,14 @@
       <video id="alpha2" loop="true" src="https://deeplor.oss-cn-hangzhou.aliyuncs.com/AR/demo.webm" autoplay muted></video>
     </a-assets>
     <a-nft
-    type="nft"
-    url="./dataNFT/trees"
-    smooth="true"
-    smoothCount="10"
-    smoothTolerance="0.01"
-    smoothThreshold="5"
+        emitevents="true"
+        videohandler
+        type="nft"
+        url="./dataNFT/trees"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
     >
       <a-video id = "vid2"  width="200" height="350" position="20 -120 -550" rotation="90 0 180" src="#alpha2" autoplay muted>
         <video width="200" height="350" src="#source" />
